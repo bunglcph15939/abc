@@ -1,0 +1,73 @@
+<div class="container">
+  {{productForm.value | json}}
+</div>
+<div class="container">
+  {{newProduct | json}}
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-md-12">
+      <form #productForm="ngForm" action="" (ngSubmit)="onSubmit(productForm.value)">
+        <div class="form-group">
+          <input type="text" name="" id=""
+          class="form-control"placeholder="Tên sp"
+          [(ngModel)]="newProduct.name"
+          name="name"
+
+          >
+        </div>
+        <div class="form-group">
+          <input type="text" name="" id=""
+          class="form-control"placeholder="Mô tả "
+          [(ngModel)]="newProduct.decription"
+          name="decription"
+          >
+        </div>
+        <div class="form-group">
+          <input type="text" name="" id=""
+          class="form-control"placeholder="Giá sp"
+          [(ngModel)]="newProduct.price"
+          name="price"
+          >
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Tạo mới</button>
+        </div>
+      </form>
+    </div>
+
+
+
+    <div class="col-lg-6 col-md-12">
+     <table class="table table-hover">
+       <thead>
+         <tr>
+           <th>id</th>
+           <th>tên sp</th>
+           <th>Mô tả </th>
+           <th>Giá</th>
+           <th>option</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr *ngFor="let pro of xoa">
+          <td>{{pro.id}} </td>
+           <td>{{pro.name}} </td>
+           <td>{{pro.decription}} </td>
+           <td>{{pro.price}} </td>
+           <td>
+            <button class="btn btn-danger"
+            (click)="remove(pro.id)"
+            >xoa</button>
+        <button class="btn btn-danger" (click)="onEdit(pro)">Sửa</button>
+
+        </td>
+         </tr>
+
+       </tbody>
+      </table>
+    </div>
+</div>
+
+</div>

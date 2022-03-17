@@ -1,0 +1,71 @@
+<p class="login-title">list-user</p>
+<div class="container">
+    <div class="tk">
+        <input type="text" name="" id="tk"(input)='timkiem($event)' placeholder="search">
+    </div>
+
+    <form action="">
+        <div class="form-group">
+          <label for="">Name</label>
+          <input type="text" name="" id="name" class="form-control"
+          (input)="onChange($event,'name')"
+          [value]="newUser.name"
+          />
+
+        </div>
+        <div class="form-group">
+        <label for="">age</label>
+        <input type="number" name="" id="age" class="form-control"
+        (input)="onChange($event,'age')"
+        [value]="newUser.age"
+        />
+
+      </div>
+      <div class="form-group">
+      <label for="">phone</label>
+      <input type="number" name="" id="phone" class="form-control"
+      (input)="onChange($event,'phone')"
+      [value]="newUser.phone"
+      />
+
+    </div>
+    <div class="form-group">
+    <label for="">Avarta</label>
+    <input type="text" name="" id="avaata" class="form-control"
+    (input)="onChange($event,'avarta')"
+    [value]="newUser.avarta"
+    />
+
+  </div>
+    <button type="button" class="btn btn-success" [disabled]="!kt(newUser)" (click)="onSubmit()">Gửi</button>
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Id</th>
+                <th>Age</th>
+                <th>Phone</th>
+                <th>Avarta</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of userFillter">
+                <td scope="row">{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.age}}</td>
+                <td>{{user.phone}}</td>
+                <td><img src="{{user.avarta}}" width="100px"></td>
+                 <td><button class="btn btn-danger"
+                    (click)="remove(user.id)"
+                    >xoa</button>
+                <button class="btn btn-danger" (click)="onEdit(user)">Sửa</button>
+                
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+</div>
